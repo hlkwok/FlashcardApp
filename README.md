@@ -9,7 +9,7 @@ A Flashcard App that shows a question and answer, including multiple choice answ
 
 ### App Walk-though
 
-<img src="http://g.recordit.co/EAQQJcAYlc.gif" width=200><br>
+<img src="http://g.recordit.co/SO0uvGa41q.gif" width=200><br>
 
 ## Required
 - [x] Create New Project in Android Studio
