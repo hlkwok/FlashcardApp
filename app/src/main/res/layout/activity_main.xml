@@ -31,4 +31,66 @@
         android:background="#e3b72d"
         />
 
+    <TextView
+        android:id="@+id/answer1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Bill Clinton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/flashcard_answer"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:background="#dec087"
+        />
+
+    <TextView
+        android:id="@+id/answer2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="George H. W. Bush"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/answer1"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:background="#dec087"
+        />
+
+    <TextView
+        android:id="@+id/answer3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Barack Obama"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/answer2"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:background="#dec087"
+        />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        android:id="@+id/hide_icon"
+        android:src="@mipmap/hide_icon_foreground"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/show_icon"
+        android:src="@mipmap/show_icon_foreground"/>
+
 </RelativeLayout>
