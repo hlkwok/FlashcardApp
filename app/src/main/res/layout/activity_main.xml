@@ -15,6 +15,7 @@
         android:layout_marginTop="100dp"
         android:textSize="40sp"
         android:gravity="center"
+        android:background="#9bb7d4"
         />
 
     <TextView
@@ -27,6 +28,7 @@
         android:textSize="40sp"
         android:gravity="center"
         android:visibility="invisible"
+        android:background="#e3b72d"
         />
 
 </RelativeLayout>
