@@ -97,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
                 intent.putExtra("question", ((TextView) findViewById(R.id.flashcard_question)).getText());
                 intent.putExtra("answer", ((TextView) findViewById(R.id.flashcard_answer)).getText());
+                intent.putExtra("answer1", ((TextView) findViewById(R.id.answer1)).getText());
+                intent.putExtra("answer2", ((TextView) findViewById(R.id.answer2)).getText());
+                intent.putExtra("answer3", ((TextView) findViewById(R.id.answer3)).getText());
+
                 MainActivity.this.startActivityForResult(intent, 100);
             }
         });
@@ -111,6 +115,9 @@ public class MainActivity extends AppCompatActivity {
             if (data != null){
                 ((TextView) findViewById(R.id.flashcard_question)).setText(data.getExtras().getString("question"));
                 ((TextView) findViewById(R.id.flashcard_answer)).setText(data.getExtras().getString("answer"));
+                ((TextView) findViewById(R.id.answer1)).setText(data.getExtras().getString("answer1"));
+                ((TextView) findViewById(R.id.answer2)).setText(data.getExtras().getString("answer2"));
+                ((TextView) findViewById(R.id.answer3)).setText(data.getExtras().getString("answer"));
 
                 Snackbar.make(findViewById(R.id.flashcard_question),
                         "Flashcard successfully created",

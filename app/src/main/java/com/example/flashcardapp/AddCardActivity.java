@@ -20,6 +20,8 @@ public class AddCardActivity extends AppCompatActivity {
 
             ((EditText) findViewById(R.id.editQuestion)).setText(getIntent().getStringExtra("question"));
             ((EditText) findViewById(R.id.editAnswer)).setText(getIntent().getStringExtra("answer"));
+            ((EditText) findViewById(R.id.editAnswer1)).setText(getIntent().getStringExtra("answer1"));
+            ((EditText) findViewById(R.id.editAnswer2)).setText(getIntent().getStringExtra("answer2"));
 
         }
 
@@ -47,6 +49,8 @@ public class AddCardActivity extends AppCompatActivity {
                     Intent data = new Intent();
                     data.putExtra("question", ((EditText) findViewById(R.id.editQuestion)).getText().toString());
                     data.putExtra("answer", ((EditText) findViewById(R.id.editAnswer)).getText().toString());
+                    data.putExtra("answer1", ((EditText) findViewById(R.id.editAnswer1)).getText().toString());
+                    data.putExtra("answer2", ((EditText) findViewById(R.id.editAnswer2)).getText().toString());
                     setResult(RESULT_OK, data);
                     finish();
 

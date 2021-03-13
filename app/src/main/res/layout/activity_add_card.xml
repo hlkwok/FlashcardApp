@@ -43,4 +43,22 @@
         android:layout_marginHorizontal="20dp"
         android:hint="Answer"/>
 
+    <EditText
+        android:id="@+id/editAnswer1"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/editAnswer"
+        android:layout_marginTop="80dp"
+        android:layout_marginHorizontal="20dp"
+        android:hint="Wrong Answer Choice 1"/>
+
+    <EditText
+        android:id="@+id/editAnswer2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/editAnswer1"
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:hint="Wrong Answer Choice 2"/>
+
 </RelativeLayout>
