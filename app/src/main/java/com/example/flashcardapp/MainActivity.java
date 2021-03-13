@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -109,6 +111,11 @@ public class MainActivity extends AppCompatActivity {
             if (data != null){
                 ((TextView) findViewById(R.id.flashcard_question)).setText(data.getExtras().getString("question"));
                 ((TextView) findViewById(R.id.flashcard_answer)).setText(data.getExtras().getString("answer"));
+
+                Snackbar.make(findViewById(R.id.flashcard_question),
+                        "Flashcard successfully created",
+                        Snackbar.LENGTH_SHORT)
+                        .show();
             }
 
         }
