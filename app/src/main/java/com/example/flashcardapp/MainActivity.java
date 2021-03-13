@@ -2,6 +2,7 @@ package com.example.flashcardapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -88,8 +89,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.edit_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
+                intent.putExtra("question", ((TextView) findViewById(R.id.flashcard_question)).getText());
+                intent.putExtra("answer", ((TextView) findViewById(R.id.flashcard_answer)).getText());
+                MainActivity.this.startActivityForResult(intent, 100);
+            }
+        });
+
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 100) {

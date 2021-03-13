@@ -105,4 +105,14 @@
         android:id="@+id/plus_sign"
         android:src="@mipmap/plus_sign_foreground"/>
 
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/edit_button"
+        android:src="@mipmap/edit_button_foreground"/>
+
 </RelativeLayout>
