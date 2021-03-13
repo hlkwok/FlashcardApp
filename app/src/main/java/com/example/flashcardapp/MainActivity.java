@@ -11,13 +11,26 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
+
+    FlashcardDatabase flashcardDatabase;
+    List<Flashcard> allFlashcards;
+    int currentCardDisplayedIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        flashcardDatabase = new FlashcardDatabase(getApplicationContext());
+        allFlashcards = flashcardDatabase.getAllCards();
+
+        if (allFlashcards != null && allFlashcards.size() > 0) {
+            ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get(0).getQuestion());
+            ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashcards.get(0).getAnswer());
+        }
 
             findViewById(R.id.flashcard_question).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +118,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.right_arrow).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (allFlashcards.size() == 0){
+                    return;
+                }
+
+                currentCardDisplayedIndex++;
+
+                if (currentCardDisplayedIndex >= allFlashcards.size()){
+                    currentCardDisplayedIndex = 0;
+                }
+
+                allFlashcards = flashcardDatabase.getAllCards();
+                Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
+
+                ((TextView) findViewById(R.id.flashcard_question)).setText(flashcard.getQuestion());
+                ((TextView) findViewById(R.id.flashcard_answer)).setText(flashcard.getAnswer());
+
+            }
+        });
+
     }
 
     @SuppressLint("MissingSuperCall")
@@ -113,11 +149,20 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 100) {
 
             if (data != null){
-                ((TextView) findViewById(R.id.flashcard_question)).setText(data.getExtras().getString("question"));
-                ((TextView) findViewById(R.id.flashcard_answer)).setText(data.getExtras().getString("answer"));
-                ((TextView) findViewById(R.id.answer1)).setText(data.getExtras().getString("answer1"));
-                ((TextView) findViewById(R.id.answer2)).setText(data.getExtras().getString("answer2"));
-                ((TextView) findViewById(R.id.answer3)).setText(data.getExtras().getString("answer"));
+
+                String question = data.getExtras().getString("question");
+                String answer = data.getExtras().getString("answer");
+                String answer1 = data.getExtras().getString("answer1");
+                String answer2 = data.getExtras().getString("answer2");
+
+                ((TextView) findViewById(R.id.flashcard_question)).setText(question);
+                ((TextView) findViewById(R.id.flashcard_answer)).setText(answer);
+                ((TextView) findViewById(R.id.answer1)).setText(answer1);
+                ((TextView) findViewById(R.id.answer2)).setText(answer2);
+                ((TextView) findViewById(R.id.answer3)).setText(answer);
+
+                flashcardDatabase.insertCard(new Flashcard(question, answer));
+                allFlashcards = flashcardDatabase.getAllCards();
 
                 Snackbar.make(findViewById(R.id.flashcard_question),
                         "Flashcard successfully created",

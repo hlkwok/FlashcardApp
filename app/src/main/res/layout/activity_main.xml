@@ -39,7 +39,7 @@
         android:layout_height="60dp"
         android:text="Bill Clinton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="80dp"
         android:layout_marginLeft="20dp"
         android:layout_below="@id/flashcard_answer"
         android:textSize="30sp"
@@ -114,5 +114,15 @@
         android:layout_marginLeft="15dp"
         android:id="@+id/edit_button"
         android:src="@mipmap/edit_button_foreground"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/flashcard_question"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/right_arrow"
+        android:src="@mipmap/right_arrow_foreground"/>
 
 </RelativeLayout>
