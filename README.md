@@ -9,7 +9,7 @@ A Flashcard App that shows a changable question and answer, including changeable
 
 ### App Walk-though
 
-<img src="http://g.recordit.co/nB4jczJ8OG.gif" width=200><br>
+<img src="http://g.recordit.co/YXYKpOBuGM.gif" width=200><br>
 
 ## Required
 - [x] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
