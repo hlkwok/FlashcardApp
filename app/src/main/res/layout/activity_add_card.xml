@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddCardActivity">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/x_mark"
+        android:src="@mipmap/x_mark_foreground"/>
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/save_icon"
+        android:src="@mipmap/save_icon_foreground"/>
+
+    <EditText
+        android:id="@+id/editQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:hint="Question"/>
+
+    <EditText
+        android:id="@+id/editAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/editQuestion"
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:hint="Answer"/>
+
+</RelativeLayout>

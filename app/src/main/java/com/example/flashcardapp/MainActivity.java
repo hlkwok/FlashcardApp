@@ -2,9 +2,11 @@ package com.example.flashcardapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -14,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.flashcard_question).setOnClickListener(new View.OnClickListener() {
+            findViewById(R.id.flashcard_question).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.flashcard_question).setVisibility(View.INVISIBLE);
@@ -78,6 +80,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.plus_sign).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
+                MainActivity.this.startActivityForResult(intent, 100);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 100) {
+
+            if (data != null){
+                ((TextView) findViewById(R.id.flashcard_question)).setText(data.getExtras().getString("question"));
+                ((TextView) findViewById(R.id.flashcard_answer)).setText(data.getExtras().getString("answer"));
+            }
+
+        }
     }
 
 }
