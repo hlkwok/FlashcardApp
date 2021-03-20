@@ -123,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (allFlashcards.size() == 0){
+                    return;
+                }
+
                 allFlashcards = flashcardDatabase.getAllCards();
                 currentCardDisplayedIndex = getRandomNumber(0, allFlashcards.size() - 1);
                 Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
