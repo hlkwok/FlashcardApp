@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -122,21 +123,48 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (allFlashcards.size() == 0){
-                    return;
-                }
-
-                currentCardDisplayedIndex++;
-
-                if (currentCardDisplayedIndex >= allFlashcards.size()){
-                    currentCardDisplayedIndex = 0;
-                }
-
                 allFlashcards = flashcardDatabase.getAllCards();
+                currentCardDisplayedIndex = getRandomNumber(0, allFlashcards.size() - 1);
                 Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
 
                 ((TextView) findViewById(R.id.flashcard_question)).setText(flashcard.getQuestion());
                 ((TextView) findViewById(R.id.flashcard_answer)).setText(flashcard.getAnswer());
+
+            }
+        });
+
+        findViewById(R.id.trash_can).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (allFlashcards.size() == 0){
+                    return;
+                }
+
+                flashcardDatabase.deleteCard(allFlashcards.get(currentCardDisplayedIndex).getQuestion());
+                allFlashcards = flashcardDatabase.getAllCards();
+
+                if (allFlashcards.size() == 0){
+
+                    ((TextView) findViewById(R.id.flashcard_question)).setText("Who is the 44th President of the United States?");
+                    ((TextView) findViewById(R.id.flashcard_answer)).setText("Barack Obama");
+
+                }
+
+                else{
+
+                    currentCardDisplayedIndex--;
+
+                    if (currentCardDisplayedIndex < 0){
+                        currentCardDisplayedIndex = allFlashcards.size() - 1;
+                    }
+
+                    Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
+
+                    ((TextView) findViewById(R.id.flashcard_question)).setText(flashcard.getQuestion());
+                    ((TextView) findViewById(R.id.flashcard_answer)).setText(flashcard.getAnswer());
+
+                }
 
             }
         });
@@ -171,6 +199,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+
+    }
+
+    public int getRandomNumber(int minNumber, int maxNumber) {
+        Random rand = new Random();
+        return rand.nextInt((maxNumber - minNumber) + 1) + minNumber;
     }
 
 }

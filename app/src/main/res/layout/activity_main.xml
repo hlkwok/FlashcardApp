@@ -125,4 +125,13 @@
         android:id="@+id/right_arrow"
         android:src="@mipmap/right_arrow_foreground"/>
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/flashcard_question"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/trash_can"
+        android:src="@mipmap/trash_can_foreground"/>
+
 </RelativeLayout>
